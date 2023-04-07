@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App</title>
+        <title>Cred Profile</title>
         <meta
           name="description"
           content="Show off your contributions to the community"
