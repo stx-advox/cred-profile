@@ -1,6 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is cred profile
+
+## Description
+
+This should help folks in the advocates or any SourceCred Enabled communities show off their contributions
 
 ## Getting Started
+
+Copy and edit env
+
+```bash
+cp .env.example .env
+```
 
 First, run the development server:
 
