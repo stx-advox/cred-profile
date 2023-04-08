@@ -20,10 +20,10 @@ export default function Profile({ credScore, profile }: Props) {
   return (
     <div className="container">
       <Head>
-        <title>{profile.name}'s cred profile</title>
+        <title>{profile.name} cred profile</title>
         <meta
-            name="description"
-            content={`${profile.name} has a contribution score of ${credScore}`}
+          name="description"
+          content={`${profile.name} has a contribution score of ${credScore}`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
