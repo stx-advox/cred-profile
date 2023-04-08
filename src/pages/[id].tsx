@@ -1,12 +1,11 @@
 import {
-  btcNameToSC,
   db,
   getNameTotalCred,
   readCredGrainView,
   scNameToBtc,
 } from "@cred-profile/sourcecred/util";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { Content } from "next/font/google";
+import Head from "next/head";
 
 interface Profile {
   name: string;
@@ -20,6 +19,15 @@ interface Props {
 export default function Profile({ credScore, profile }: Props) {
   return (
     <div className="container">
+      <Head>
+        <title>{profile.name}'s cred profile</title>
+        <meta
+            name="description"
+            content={`${profile.name} has a contribution score of ${credScore}`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <h1>Hello {profile.name}!</h1>
 
       <h2>You got a cred score of {credScore}</h2>
