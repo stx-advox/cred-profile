@@ -36,7 +36,6 @@ export const readCredGrainView = async () => {
   }
 
   if (dataFresh) {
-    console.log("data fresh no need to request again");
     return;
   }
 
