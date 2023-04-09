@@ -43,8 +43,5 @@ interface Share {
 }
 
 interface Expression {
-  description: string;
-  operator: string;
   score: number;
-  weightOperands: any[];
 }

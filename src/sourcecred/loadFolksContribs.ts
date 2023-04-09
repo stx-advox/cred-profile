@@ -33,6 +33,9 @@ export const loadFolksContrib = async (
 
     scoredContribMap = scoredContribMap.map(
       ({ expression, id, participants, plugin, timestampMs, type }) => {
+        expression = {
+          score: expression.score,
+        };
         return { expression, id, participants, plugin, timestampMs, type };
       }
     );
