@@ -1,9 +1,5 @@
-import {
-  db,
-  getNameTotalCred,
-  readCredGrainView,
-  scNameToBtc,
-} from "@cred-profile/sourcecred/util";
+import { loadSCData } from "@cred-profile/sourcecred";
+import { getNameTotalCred, scNameToBtc } from "@cred-profile/sourcecred/util";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 
@@ -20,7 +16,7 @@ export default function Profile({ credScore, profile }: Props) {
   return (
     <div className="container">
       <Head>
-        <title>{profile.name} cred profile</title>
+        <title>{`${profile.name} cred profile`}</title>
         <meta
           name="description"
           content={`${profile.name} has a contribution score of ${credScore}`}
@@ -44,8 +40,8 @@ export default function Profile({ credScore, profile }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  await readCredGrainView();
-  const participants = db.data?.participants || [];
+  const data = await loadSCData();
+  const participants = data.participants;
   console.log(participants.length);
   const paths: Array<{ params: { id: string } }> = participants.map((item) => {
     return {

@@ -2,7 +2,6 @@ export interface Participant {
   active: boolean;
   identity: Identity;
   cred: number;
-  credPerInterval: (number | string)[];
 }
 
 export interface Identity {
@@ -17,4 +16,35 @@ export interface Alias {
   address: string;
   description: string;
 }
-export type DBData = { expiry: number; participants: Participant[] };
+export type DBData = {
+  expiry: number;
+  participants: Participant[];
+  contributions: ScoredContribution[];
+};
+
+export interface ScoredContribution {
+  expression: Expression;
+  id: string;
+  participants: ContribParticipant[];
+  plugin: string;
+  timestampMs: number;
+  type: string;
+}
+
+interface ContribParticipant {
+  id: string;
+  score: number;
+  shares: Share[];
+}
+
+interface Share {
+  amount: number;
+  key: string;
+}
+
+interface Expression {
+  description: string;
+  operator: string;
+  score: number;
+  weightOperands: any[];
+}
